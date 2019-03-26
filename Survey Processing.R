@@ -1,9 +1,9 @@
 ## Set working folder to the folder containing data file
-setwd("D:/University of Wollongong/S3&S4 - ISIT990/Assignment/Survey")
+setwd("D:/University of Wollongong/TfNSW")
 library(cronbach)
 
 ## Read data file into environment
-data <- read.csv("ISIT990_Assignment 4_Survey result.csv", header = TRUE, sep = ",")
+data <- read.csv("TfNSW_Survey result.csv", header = TRUE, sep = ",")
 # Get rid of some unnecessary columns
 data <- data[,-c(1,7,8,9,23)]
 
@@ -104,7 +104,7 @@ library(ggplot2)
 library(reshape2)
 
 ## Preliminary analysis
-setwd("D:/University of Wollongong/S3&S4 - ISIT990/Assignment/Survey/Q1.Q5 - Drill Down")
+setwd("D:/University of Wollongong/TfNSW/Survey/Q1.Q5 - Drill Down")
 # Gender ratio
 jpeg(filename = "Gender ratio.jpeg", width = 480, height = 480, units = "px")
 x <- c(table(data[,1])[1], table(data[,1])[2])
@@ -144,7 +144,7 @@ dev.off()
 rm(x)
 rm(pct)
 
-setwd("D:/University of Wollongong/S3&S4 - ISIT990/Assignment/Survey/Q1.Q5 - Drill Across")
+setwd("D:/University of Wollongong/TfNSW/Survey/Q1.Q5 - Drill Across")
 ## Plot gender vs. occupation
 jpeg(filename = "Gender vs. Occupation.jpeg", width = 1366, height = 720, units = "px")
 ggplot(commuters) + 
@@ -185,7 +185,7 @@ ggplot(commuters) +
   theme(text = element_text(size = 17.5), axis.text.x = element_text(angle=45, hjust=1))
 dev.off()
 
-setwd("D:/University of Wollongong/S3&S4 - ISIT990/Assignment/Survey/Q9 - Infrastructure and Service Quality")
+setwd("D:/University of Wollongong/TfNSW/Survey/Q9 - Infrastructure and Service Quality")
 ## Plot a bar chart and boxplot for Q9
 jpeg(filename = "Rating on Offered Information.jpeg", width = 1366, height = 720, units = "px")
 ggplot(commuters1) + 
@@ -257,7 +257,7 @@ ggplot(commuters1) +
   theme(text = element_text(size = 17.5), axis.text.x = element_text(angle=45, hjust=1))
 dev.off()
 
-setwd("D:/University of Wollongong/S3&S4 - ISIT990/Assignment/Survey/Q10 - Transport Experience")
+setwd("D:/University of Wollongong/TfNSW/Survey/Q10 - Transport Experience")
 ## Plot a bar chart and boxplot for Q10
 jpeg(filename = "Rating on Staff Friendliness.jpeg", width = 1366, height = 720, units = "px")
 ggplot(commuters1) + 
@@ -319,7 +319,7 @@ ggplot(commuters1) +
   theme(text = element_text(size = 17.5), axis.text.x = element_text(angle=45, hjust=1))
 dev.off()
 
-setwd("D:/University of Wollongong/S3&S4 - ISIT990/Assignment/Survey/Q12 - Overall PT Service")
+setwd("D:/University of Wollongong/TfNSW/Survey/Q12 - Overall PT Service")
 ## Plot a bar chart and boxplot for Q12
 jpeg(filename = "Rating on Overall PT Experience.jpeg", width = 1366, height = 720, units = "px")
 ggplot(commuters1) + 
@@ -331,7 +331,7 @@ ggplot(commuters1) +
   theme(text = element_text(size = 17.5), axis.text.x = element_text(angle=45, hjust=1))
 dev.off()
 
-setwd("D:/University of Wollongong/S3&S4 - ISIT990/Assignment/Survey/Q9.Q10 - Ratings vs. Occupation")
+setwd("D:/University of Wollongong/TfNSW/Survey/Q9.Q10 - Ratings vs. Occupation")
 ## Group occupation for infrastructure and service quality rating
 jpeg(filename = "Infrastructure and Service Quality Rating vs. Occupation.jpeg", width = 1366, height = 720, units = "px")
 df1 <- melt(commuters1[,c(3,6,7,8,9,10,11,12)], id.vars = "Q3")
@@ -363,4 +363,4 @@ rm(df1)
 rm(df2)
 
 ## Save data (specify the directory correctly)
-save.image("D:/University of Wollongong/S3&S4 - ISIT990/Assignment/Survey/Survey_Data.RData")
+save.image("D:/University of Wollongong/TfNSW/Survey/Survey_Data.RData")
